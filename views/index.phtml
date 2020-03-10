@@ -1,0 +1,113 @@
+<div class="container">
+    <section class="slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="images/louvre.jpg" alt="Paris sous la neige" />
+                </li>
+                <li>
+                    <img src="images/mauve.jpg" alt="Paris à Noel" />
+                </li>
+                <li>
+                    <img src="images/ponts.jpg" alt="Un pont de Paris" />
+                </li>
+                <li>
+                    <img src="images/paris.jpg" alt="Paris" />
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="principal__derniersarticles">
+            <h2>Les derniers articles</h2>
+            <!--les 8 derniers articles-->
+            <?php foreach ($articles as $article) : ?>
+                <article>
+                    <a href="<?= $address ?>article/<?php echo $article['Id']; ?>">
+                        <div class="article__articlecomplet__image">
+                            <img src="<?php
+                                        if (substr($article['Image'], 0, 4) != "http")
+                                            echo "$homeDirectory" . "images/";
+                                        echo $article['Image']; ?>" alt="<?php echo $article['Titre']; ?>">
+                        </div>
+                        <h3><?php echo $article['Titre']; ?></h3>
+                    </a>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section>
+        <div class="principal__moment">
+            <!--les 4 prochains articles à supprimer-->
+            <h2>Les articles du moment</h2>
+            <?php foreach ($articlesDate as $articled) : ?>
+                <article>
+                    <a href="<?= $address ?>article/<?php echo $articled['Id']; ?>">
+                        <div class="article__articlecomplet__image">
+                            <img src="<?php
+                                        if (substr($articled['Image'], 0, 4) != "http")
+                                            echo "$homeDirectory" . "images/";
+                                        echo $articled['Image']; ?>" alt="<?php echo $articled['Titre']; ?>">
+                        </div>
+                        <h3><?php echo $articled['Titre']; ?></h3>
+                    </a>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <div class='principal__float'>
+
+        <section>
+            <div class="principal__decouverte">
+                <h2>Nos découvertes à ne pas râter</h2>
+                <?php foreach ($articlesNew as $articlen) : ?>
+                    <article>
+                        <a href="<?= $address ?>article/<?php echo $articlen['Id']; ?>">
+                            <div class="article__articlecomplet__image">
+                                <img src="<?php
+                                            if (substr($articlen['Image'], 0, 4) != "http")
+                                                echo "$homeDirectory" . "images/";
+                                            echo $articlen['Image']; ?>" alt="<?php echo $articlen['Titre']; ?>">
+                            </div>
+                            <h3><?php echo $articlen['Titre']; ?></h3>
+                        </a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </section>
+        <section>
+            <div class="principal__global">
+                <a href="<?= $address ?>article/<?php echo $articlen['Id']; ?>">
+                        <img src="<?php
+                                    if (substr($articlen['Image'], 0, 4) != "http")
+                                        echo "$homeDirectory" . "images/";
+                                    echo $articlen['Image']; ?>" alt="<?php echo $articlen['Titre']; ?>">
+                    <h3><?php echo $articlen['Titre']; ?></h3>
+                </a>
+            </div>
+            <div class="clear"></div>
+        </section>
+
+        <section>
+            <div class="principal__populaire">
+                <h2>Les articles les plus consultés</h2>
+                <?php foreach ($articlesPop as $articlep) : ?>
+                    <article>
+                        <a href="<?= $address ?>article/<?php echo $articlep['Id']; ?>">
+                            <div class="article__articlecomplet__image">
+                                <img src="<?php
+                                            if (substr($articlep['Image'], 0, 4) != "http")
+                                                echo "$homeDirectory" . "images/";
+                                            echo $articlep['Image']; ?>" alt="<?php echo $articlep['Titre']; ?>">
+                            </div>
+                            <h3><?php echo $articlep['Titre']; ?></h3>
+                        </a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </div>
+</div>

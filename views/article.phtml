@@ -1,0 +1,58 @@
+<!--dans ce fichier, mettre tout le HTML et utiliser les variables php créées dans article.php-->
+<div class="container">
+	<div class="article__containerprincipal">
+		<h1 class="article__titreprincipal"><?php echo $articleComplet['Titre'] ?></h1>
+		<div class="article__soustitre">
+			<div class="article__soustitre__widget">
+				<a href="#" target="_blank" class="article__soustitre__widget__facebook"><i class="fa fa-facebook-square"></i></a>
+				<a href="#" target="_blank" class="article__soustitre__widget__twitter"><i class="fa fa-twitter-square"></i></a>
+			</div>
+			<p class="article__soustitre__publication">Publié le <?php echo date('d/m/y', strtotime($articleComplet['Date_Ajout'])); ?></p>
+		</div>
+		<div class="article__container">
+			<div class="article__articlecomplet">
+				<section>
+					<div class="article__articlecomplet__paragraphe">
+						<article>
+							<p> <?php echo $articleComplet['texte'] ?></p>
+						</article>
+					</div>
+				</section>
+			</div>
+			<div class="article__articlecomplet__aside">
+				<aside>
+					<h3>Informations</h3>
+					<h4>Dates</h4>
+					<p><?php echo date('d/m/y', strtotime($articleComplet['DateEvenement'])) ?></p>
+					<!--date de l'evenement-->
+					<h4>Lieu</h4>
+					<p><?php echo $articleComplet['Adresse'] ?></p>
+					<!--lieu de l'evenement'-->
+					<h4>Tarif</h4>
+					<p><?php echo $articleComplet['Tarif'] ?></p>
+					<!--tarif ou gratuit-->
+					<h4><a href="<?php echo $articleComplet['Mail'] ?>" target="_blank">Site officiel</a></h4>
+					<!--lien vers le site officiel-->
+				</aside>
+			</div>
+		</div>
+	</div>
+	<div class='clear'></div>
+	<div class="article__articlecomplet__footer">
+		<div class="article__articlecomplet__autres">
+			<h3>Les derniers articles</h3>
+			<?php foreach ($articleS as $article) : ?>
+				<article>
+					<a href="<?= $address ?>article/<?php echo $article['Id']; ?>">
+							<img src="<?php
+										if (substr($article['Image'], 0, 4) != "http")
+											echo "$homeDirectory" . "images/";
+										echo $article['Image']; ?>" alt="<?php echo $article['Titre']; ?>">
+						<h4><?php echo $article['Titre']; ?></h4>
+					</a>
+				</article>
+			<?php endforeach; ?>
+		</div>
+	</div>
+
+</div>

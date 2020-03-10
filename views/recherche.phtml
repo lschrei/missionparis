@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="article__articlecomplet__autres">
+		<h3><?php echo $_GET['q'] ?></h3>
+		<?php
+		if (empty($article)) {
+			echo '<p>Désolé, aucun résultat ne correspond à votre recherche</p>';
+		} else {
+			foreach ($article as $articlet) : ?>
+				<article>
+					<a href="<?= $address ?>article/<?php echo $articlet['Id']; ?>">
+						<img src="<?php
+											if (substr($articlet['Image'], 0, 4) != "http")
+												echo "$homeDirectory" . "images/";
+											echo $articlet['Image']; ?>" alt="<?php echo $articlet['Titre']; ?>">
+						<h4><?php echo $articlet['Titre']; ?></h4>
+					</a>
+				</article>
+		<?php endforeach;
+		} ?>
+	</div>
+	<div class="article__articlecomplet__footer">
+		<div class="article__articlecomplet__autres">
+			<h3>Les derniers articles</h3>
+			<?php foreach ($articles as $article) : ?>
+				<article>
+					<a href="<?= $address ?>article/<?php echo $article['Id']; ?>">
+						<img src="<?php
+										if (substr($article['Image'], 0, 4) != "http")
+											echo "$homeDirectory" . "images/";
+										echo $article['Image']; ?>" alt="<?php echo $article['Titre']; ?>">
+						<h4><?php echo $article['Titre']; ?></h4>
+					</a>
+				</article>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</div>

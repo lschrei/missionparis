@@ -1,0 +1,95 @@
+<div class="container">
+	<div class="container__contact">
+		<div class="contact">
+			<div class="contact__information">
+				<div class="contact__h2">
+					<h2>Qui sommes-nous?</h2>
+				</div>
+				<p>Une équipe de parisiens qui adorons notre ville, et cherchons toujours ce qu'il y a de nouveau à
+					Paris afin de vous partager nos dernières découvertes! </p>
+				<div class="contact__information__media"><i class="fa fa-phone"></i>
+					Téléphone:
+					07.52.63.60.00
+				</div>
+				<div class="contact__information__media">
+					<i class="fa fa-at"></i>
+					Mail:
+					<a href="mailto:contact@missionparis.fr">contact@missionparis.fr</a>
+				</div>
+			</div>
+
+			<div class='contact__formulaire'>
+				<div class="contact__h2">
+					<h2>Formulaire de contact</h2>
+				</div>
+				<form action="<?= $address ?>contact" method="post">
+					<input type="text" name="Nom" placeholder="Nom & Prénom *" class="contact__formulaire__input" required minlength=3 maxlength="30">
+					<input type="email" name="Mail" placeholder="Mail *" class="contact__formulaire__input" required>
+					<br>
+					<select name="Sujet" class="contact__formulaire__input">
+						<option value="info">Demande d'information</option>
+						<option value="paris" selected>Apparaître sur Mission Paris</option>
+						<option value="aime">Nous suggérer des améliorations</option>
+						<option value="autre">Autres</option>
+					</select>
+					<br>
+					<textarea name="Message" class="contact__formulaire__input" placeholder="Message..." minlength="3" maxlength="350"></textarea>
+					<br>
+					<button type="submit" name="submit" class="contact__button">Envoyer un message</button>
+					<?php
+					if (isset($_POST['submit'])) {
+						if (empty($_POST['Mail'])) {
+							echo "Le champ mail est vide";
+						} else {
+							if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z]{2,6}$#", $_POST['Mail'])) {
+								echo "L'adresse mail entrée est incorrecte";
+							} else {
+								if (empty($_POST['Message'])) {
+									echo "Le champ message est vide";
+								} else {
+									$entete  = 'MIME-Version: 1.0' . "\r\n";
+									$entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+									$entete .= 'From: ' . $_POST['Mail'] . "\r\n";
+
+									$message = '<h1>Message envoyé depuis la page Contact de missionparis.fr</h1>
+                <p><b>Nom : </b>' . strip_tags($_POST['Nom']) . '<br>
+		        <b>Email : </b>' . strip_tags($_POST['Mail']) . '<br>
+		        <b>Sujet : </b>' . $_POST['Sujet'] . '<br>
+                <b>Message : </b>' . strip_tags($_POST['Message']) . '</p>';
+
+									$retour = mail('laetitiaschreiner@icloud.com', 'Envoi depuis page Contact', $message, $entete);
+									if ($retour) {
+										echo '<p>Votre message a bien été envoyé. Nous vous répondrons rapidement</p>';
+									} else {
+										echo '<p>Votre message n\a pu être envoyé</p>';
+									}
+								}
+							}
+						}
+					}
+					?>
+				</form>
+			</div>
+		</div>
+		<section>
+
+			<div class="principal__derniersarticles">
+				<h2>Les derniers articles</h2>
+				<!--les 8 derniers articles-->
+				<?php foreach ($articles as $article) : ?>
+					<article>
+						<a href="<?= $address ?>article/<?php echo $article['Id']; ?>">
+							<div class="article__articlecomplet__image">
+								<img src="<?php
+											if (substr($article['Image'], 0, 4) != "http")
+												echo "$homeDirectory" . "images/";
+											echo $article['Image']; ?>" alt="<?php echo $article['Titre']; ?>">
+							</div>
+							<h3><?php echo $article['Titre']; ?></h3>
+						</a>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		</section>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+
+.DS_Store
+application/bdd-login.php
+images/*
+!images/mission-paris-black.svg
+!images/mission_paris-white.svg
+!images/mmauve.jpg
+!images/paris.jpg
+!images/louvre.jpg
+!images/ponts.jpg
+!images/logo2.png
+!images/logo.png

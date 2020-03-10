@@ -1,0 +1,54 @@
+<?php include '../application/bdd-connection.php'; ?>
+<?php include('header.php'); ?>
+<?php
+if (isset($_GET['delete'])) {
+	$query =
+		'  
+           DELETE FROM
+           Admin
+           WHERE 
+           Id=?
+        ';
+
+	$resultSet  = $pdo->prepare($query);
+	$resultSet->execute([$_GET['delete']]);
+}
+
+$resultSet = $pdo->query('SELECT * FROM Admin');
+$admin = $resultSet->fetchAll();
+?>
+<div class="contenudashboard__principal">
+	<div class="container__admin__container">
+		<div class="admin__titre">
+			<h4>Liste des administrateurs</h4>
+		</div>
+		<div class="admin__table">
+			<table class="admin__table__categorie">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Administrateur</th>
+						<th>Mot de passe</th>
+						<th>Supprimer</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<?php foreach ($admin as $admins) : ?>
+							<td><?php echo $admins['Id'] ?></td>
+							<td><?php echo $admins['User'] ?></td>
+							<td><?php echo $admins['Password'] ?></td>
+							<!--juste pour que vous verifier que le mdp est encrypté -->
+							<td><a href="liste_admins.php?delete=<?php echo $admins['Id'] ?>" class="admin__supprimer" onclick="return confirm('Confirmez la suppression?')"><i class="fa fa-trash"></i>Supprimer</a></td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</main>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<div class='titre__categorie'>
+	<h1><?php echo $categorie['Nom'] ?></h1>
+</div>
+<div class="container">
+	<div class="contenu__categorie">
+
+		<section>
+			<div class="categorie__decouverte">
+				<h2>Nos derniers articles</h2>
+				<?php foreach ($categorieArticle as $categorieA) : ?>
+					<article>
+						<a href="<?= $address ?>article/<?php echo $categorieA['Id']; ?>">
+							<div class="article__articlecomplet__image">
+								<img src="<?php
+											if (substr($categorieA['Image'], 0, 4) != "http")
+												echo "$homeDirectory" . "images/";
+											echo $categorieA['Image']; ?>" alt="<?php echo $categorieA['Titre']; ?>">
+							</div>
+							<h3><?php echo $categorieA['Titre'] ?></h3>
+						</a>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		</section>
+	</div>
+</div>
