@@ -1,20 +1,3 @@
-<?php include('header.php'); ?>
-<?php include '../application/bdd-connection.php'; ?>
-<?php
-if (isset($_POST['ajouter'])) {
-    $query =
-        '  
-           INSERT INTO
-           Categorie
-           (Nom)
-           VALUES
-           (?)
-        ';
-
-    $resultSet  = $pdo->prepare($query);
-    $resultSet->execute([$_POST['Nom']]);
-}
-?>
 <div class="contenudashboard__principal">
     <div class="admin__titre">
         <h4>Ajouter une catégorie sur le site</h4>

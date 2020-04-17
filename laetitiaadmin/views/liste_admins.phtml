@@ -1,22 +1,3 @@
-<?php include '../application/bdd-connection.php'; ?>
-<?php include('header.php'); ?>
-<?php
-if (isset($_GET['delete'])) {
-	$query =
-		'  
-           DELETE FROM
-           Admin
-           WHERE 
-           Id=?
-        ';
-
-	$resultSet  = $pdo->prepare($query);
-	$resultSet->execute([$_GET['delete']]);
-}
-
-$resultSet = $pdo->query('SELECT * FROM Admin');
-$admin = $resultSet->fetchAll();
-?>
 <div class="contenudashboard__principal">
 	<div class="container__admin__container">
 		<div class="admin__titre">

@@ -1,5 +1,5 @@
-<?php include '../application/bdd-connection.php'; ?>
 <?php
+require_once '../application/bdd-connection.php';
 
 if (isset($_POST['login'])) {
 	$query = 'SELECT * FROM Admin WHERE User=? AND Password=?';
@@ -9,8 +9,7 @@ if (isset($_POST['login'])) {
 
 	if (isset($admin['Id'])) {
 		$_SESSION['Admin'] = $_POST['User'];
-		header('location:dashboard.php');
-	} else {
+		header('location:dashboard'); 
 		echo "Connexion impossible";
 	}
 }
@@ -19,6 +18,8 @@ if (isset($_POST['login'])) {
 <html lang="fr">
 
 <head>
+<link rel="stylesheet" href="../css/stylesheetadmin.css">
+
 	<title>Connexion - Mission Paris</title>
 </head>
 

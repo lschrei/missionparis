@@ -1,20 +1,3 @@
-<?php include '../application/bdd-connection.php'; ?>
-<?php include('header.php'); ?>
-<?php
-if (isset($_POST['ajouter'])) {
-	$query =
-		'  
-           INSERT INTO
-           Admin
-           (User,Password)
-           VALUES
-           (?,?)
-        ';
-
-	$resultSet  = $pdo->prepare($query);
-	$resultSet->execute([$_POST['User'], md5($_POST['Password'])]);
-}
-?>
 <div class="contenudashboard__principal">
     <div class="admin__titre">
         <h4>Ajouter un administrateur</h4>
