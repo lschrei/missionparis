@@ -1,3 +1,6 @@
 RewriteEngine on
 
-RewriteRule ^([a-z0-9/]+)$ ./index.php?location=$1 [QSA]
+
+RewriteRule ^laetitiaadmin/([a-z0-9/_]*)$ ./laetitiaadmin/index.php?location=$1 [QSA]
+RewriteRule ^([a-z0-9/_]*)$ ./index.php?location=$1 [QSA]
+

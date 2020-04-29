@@ -22,6 +22,7 @@ if (!isset($_SESSION['Admin'])) {
 	<!-- include summernote css/js -->
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+	<script type="text/javascript" src="<?= $homeDirectory; ?>js/javascript.js"></script>
 
 
 

@@ -8,7 +8,7 @@
     <p id="articlet"></p>
   </div>
   <div class="dashboard__grid__recherches">
-    <p>Le top 5 des recherches</p>
+    <p>Le top 5 des recherches</p>  
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -38,7 +38,16 @@
     </script>
     <div id="piechart_3d" style="width: 100%; height: 100%;"></div>
   </div>
-
+<div class="dashboard_grid_like">
+  <p>Article le plus likés</p>
+  <?php foreach ($likeDislike as $articles) : ?>
+  <p><?= $articles['Titre']; ?> liké <?= $articles['cn']; ?> fois</p>
+  <?php endforeach; ?>
+  <p>Article le plus dislikés</p>
+  <?php foreach ($likeDislikes as $articleDislike) : ?>
+  <p><?= $articleDislike['Titre']; ?> disliké <?= $articleDislike['cn']; ?> fois</p>
+  <?php endforeach; ?>
+</div>
   <div class="dashboard__grid__semaine">
     <p>Nombre d'articles consultés depuis 7 jours</p>
     <p id="consultation"></p>

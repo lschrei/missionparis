@@ -31,6 +31,11 @@
 	$resultSet = $pdo->query($query);
 	$cats = $resultSet->fetchAll();
 	?>
+	<?php
+	$query = 'SELECT * FROM Article';
+	$resultSet = $pdo->query($query);
+	$artics = $resultSet->fetchAll();
+	?>
 	<title><?= $title; ?> - Mission Paris</title>
 </head>
 
@@ -38,7 +43,7 @@
 	<header class="header">
 		<div class="header__supplement">
 			<p>Toute l'actualité culturelle de Paris</p>
-			<span class="header__btn" onclick="openNav()"><i class="fa fa-search"></i><i class="fa fa-bars"></i></span>
+			<span class="header__btn" onclick="openNav()"><i id="search_open" class="fa fa-search"></i><i class="fa fa-bars"></i></span>
 		</div>
 		<div class="container">
 			<div class="header__nav">
@@ -49,7 +54,7 @@
 						<nav>
 							<a href="<?= $address; ?>categorie/<?php echo $cat['Id'] . '">' . $cat['Nom'] ?></a>							
 						<?php endforeach; ?>						
-						<a href='<?= $address; ?>contact' class="nav__contact">contact</a>
+						<a href='<?= $address; ?>contact' class=" nav__contact">contact</a>
 						</nav>
 				</div>
 			</div>
@@ -60,12 +65,16 @@
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" style="color:white" onclick="closeNav()">&times;</a>
 			<form method='GET' action="<?= $address; ?>recherche" class="searchtop">
-				<input type="search" name='q' class="header__search" placeholder="Rechercher...">
+				<input type="search" list="datalist" onkeyup="ac(this.value)"  name='q' class="header__search" id="headerSearch" placeholder="Rechercher...">
+
+				<datalist id="datalist">
+								
+				</datalist>
 			</form>
 			<?php foreach ($cats as $cat) : ?>
 				<nav>
 					<a href="<?= $address; ?>categorie/<?php echo $cat['Id'] . '">' . $cat['Nom'] ?></a>							
 						<?php endforeach; ?>
-						<a href='<?= $address; ?>contact' class="nav__contact">contact</a>
+						<a href='<?= $address; ?>contact' class=" nav__contact">contact</a>
 				</nav>
 		</div>

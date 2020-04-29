@@ -311,7 +311,17 @@ INDEX.PHP - DERNIERS ARTICLES/ MOMENT/ AUTRES
 .article__articlecomplet__autres {
     display: contents;
 }
+#like_btn{
+    background-color: green;
+    margin: 1em;
+    padding: 0.4em;
+}
 
+#dislike_btn{
+    background-color: red;
+    margin: 0.5em;
+    padding: 0.4em;
+}
 
 /* *****************************************************************************
 INDEX.PHP - DECOUVERTE/POPULAIRE
