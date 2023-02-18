@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 session_start();
 $pdo = new PDO(
-	'mysql:host = ' . $host . ';port = 8889;dbname=' . $dbname . ';charset = utf8',
+	'mysql:host = ' . $host . ';port = ' . $port . ';dbname = ' . $dbname . ';charset = utf8',
 	$user, //identifiant
 	$pass //mot de passe
 );
