@@ -10,11 +10,9 @@ if (!isset($_SESSION['Admin'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<link rel="stylesheet" href="<?= $homeDirectory; ?>/css/stylesheetadmin.css">
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="icon" href="<?= $homeDirectory; ?>/images/logo.png"">
+	<link rel="icon" href="<?= $homeDirectory; ?>/images/logo.png">
 	<!-- include summernote css/js pour l'éditeur de texte d'ajouter_article-->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>

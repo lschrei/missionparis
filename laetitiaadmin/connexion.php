@@ -13,6 +13,9 @@ if (isset($_POST['login'])) {
 		echo "Connexion impossible";
 	}
 }
+else{
+	echo "Erreur de récupération des données";
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
