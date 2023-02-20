@@ -13,7 +13,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="icon" type="image/svg" href="<?= $homeDirectory; ?>images/logo2.png">
-	<!--favicon à mettre après avoir ajuster la taille-->
 	<!--JQuery Slider-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="<?= $homeDirectory; ?>js/jquery.flexslider-min.js"></script>
@@ -43,19 +42,19 @@
 	<header class="header">
 		<div class="header__supplement">
 			<p>Toute l'actualité culturelle de Paris</p>
+			<p class="header__nav__nav"><a href="<?= $address ?>index" style="color: white;">Mission Paris</a></p>
 			<span class="header__btn" onclick="openNav()"><i id="search_open" class="fa fa-search"></i><i class="fa fa-bars"></i></span>
 		</div>
 		<div class="container">
 			<div class="header__nav">
 				<div class="header__nav__nav">
 					<a href="<?= $address ?>index"><img src="<?= $homeDirectory; ?>images/mission_paris-white.svg" alt="logo de mission paris"></a>
-
-					<?php foreach ($cats as $cat) : ?>
-						<nav>
-							<a href="<?= $address; ?>categorie/<?php echo $cat['Id'] . '">' . $cat['Nom'] ?></a>							
+						<?php foreach ($cats as $cat) : ?>
+							<nav>
+								<a href="<?= $address; ?>categorie/<?php echo $cat['Id'] . '">' . $cat['Nom'] ?></a>							
 						<?php endforeach; ?>						
 						<a href='<?= $address; ?>contact' class=" nav__contact">contact</a>
-						</nav>
+					</nav>
 				</div>
 			</div>
 		</div>
@@ -66,15 +65,13 @@
 			<a href="javascript:void(0)" class="closebtn" style="color:white" onclick="closeNav()">&times;</a>
 			<form method='GET' action="<?= $address; ?>recherche" class="searchtop">
 				<input type="search" list="datalist" onkeyup="ac(this.value)"  name='q' class="header__search" id="headerSearch" placeholder="Rechercher...">
-
-				<datalist id="datalist">
-								
+				<datalist id="datalist">								
 				</datalist>
 			</form>
 			<?php foreach ($cats as $cat) : ?>
 				<nav>
 					<a href="<?= $address; ?>categorie/<?php echo $cat['Id'] . '">' . $cat['Nom'] ?></a>							
-						<?php endforeach; ?>
-						<a href='<?= $address; ?>contact' class=" nav__contact">contact</a>
+			<?php endforeach; ?>
+				<a href='<?= $address; ?>contact' class=" nav__contact">contact</a>
 				</nav>
 		</div>

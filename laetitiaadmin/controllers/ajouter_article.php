@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['ajouter'])) {
 
-	$filename = rand(1111, 9999) . "_" . time(); //p our renommer l'image
+	$filename = rand(1111, 9999) . "_" . time(); //pour renommer l'image
 	$extension = pathinfo($_FILES["Image"]["name"], PATHINFO_EXTENSION);
 	$newname = $filename . '.' . $extension;
 
