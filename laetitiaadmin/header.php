@@ -14,8 +14,6 @@ if (!isset($_SESSION['Admin'])) {
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="icon" href="<?= $homeDirectory; ?>/images/logo.png">
 	<!-- script de l'éditeur de texte -->
-	<!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
- 	<script>tinymce.init({ selector:'textarea' });</script> -->
 	<script src="https://cdn.tiny.cloud/1/ocf3g43wcxzm2xaf4483e1ct3euq0ezio9a3hik0t6648ee3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
     tinymce.init({
@@ -57,12 +55,12 @@ if (!isset($_SESSION['Admin'])) {
       }
     </script>
 	<!-- include summernote css/js pour l'éditeur de texte d'ajouter_article-->
-	<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 	<!-- include summernote css/js -->
-	<!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script> -->
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
 	<script type="text/javascript" src="<?= $homeDirectory; ?>js/javascript.js"></script>
 
 
