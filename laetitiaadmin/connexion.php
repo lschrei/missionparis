@@ -9,9 +9,9 @@ if (isset($_POST['login'])) {
 
 	if (isset($admin['Id'])) {
 		$_SESSION['Admin'] = $_POST['User'];
-		header('location:dashboard'); 
-		echo "Connexion impossible";
+		header('location:dashboard'); ›	
 	}
+	echo "Connexion impossible";
 }
 ?>
 <!DOCTYPE html>
@@ -37,5 +37,5 @@ if (isset($_POST['login'])) {
 	</div>
 	<script>
 		document.getElementById("User").focus();
-	</script>
+	</script>›
 </body>
